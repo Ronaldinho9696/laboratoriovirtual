@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🧠 Memoria | Partes de la Planta | UCV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            font-family: 'Segoe UI', 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Fondo con elementos decorativos animados */
+        body::before {
+            content: "🌸🌻🌺🌷🌹🌼🌸🌻🌺🌷🌹🌼🌸🌻🌺🌷🌹🌼🌸🌻🌺🌷🌹🌼";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 3rem;
+            letter-spacing: 40px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+            animation: floresFondo 20s linear infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes floresFondo {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        body::after {
+            content: "⭐✨🌟⭐✨🌟⭐✨🌟⭐✨🌟⭐✨🌟";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+            letter-spacing: 60px;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            animation: estrellasFondo 15s linear infinite reverse;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes estrellasFondo {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Burbujas flotantes de fondo */
+        .burbuja {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+            animation: flotarBurbuja 8s ease-in-out infinite alternate;
+        }
+
+        .burbuja:nth-child(1) { width: 80px; height: 80px; background: #ff6b6b; top: 10%; left: 5%; animation-delay: 0s; }
+        .burbuja:nth-child(2) { width: 60px; height: 60px; background: #ffd93d; top: 20%; right: 8%; animation-delay: 1s; }
+        .burbuja:nth-child(3) { width: 100px; height: 100px; background: #6bcb77; bottom: 15%; left: 3%; animation-delay: 2s; }
+        .burbuja:nth-child(4) { width: 70px; height: 70px; background: #4d96ff; bottom: 25%; right: 5%; animation-delay: 3s; }
+        .burbuja:nth-child(5) { width: 50px; height: 50px; background: #ff6bcb; top: 50%; left: 2%; animation-delay: 0.5s; }
+        .burbuja:nth-child(6) { width: 90px; height: 90px; background: #ffd93d; top: 60%; right: 2%; animation-delay: 1.5s; }
+
+        @keyframes flotarBurbuja {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .app-container {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 255, 245, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 75px 75px 65px 65px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.3);
+            padding: 20px 25px 35px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* ENCABEZADO UCV */
+        .header-ucv {
+            background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
+            border-radius: 50px 50px 30px 30px;
+            padding: 12px 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 6px 0 #0e2a42, 0 0 20px rgba(42, 95, 122, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .header-ucv .logo-ucv {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffd966;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #0e2a42;
+        }
+
+        .header-ucv .facultad {
+            color: #c8e6ff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: rgba(255,255,255,0.15);
+            padding: 5px 18px;
+            border-radius: 30px;
+            border: 2px solid #ffd966;
+        }
+
+        .header-ucv .facultad span {
+            color: #ffd966;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, #ffbf69, #ff9a56);
+            display: inline-block;
+            padding: 8px 35px;
+            border-radius: 60px;
+            color: #2c4b2f;
+            box-shadow: 0 7px 0 #c16f2e, 0 0 30px rgba(255, 191, 105, 0.3);
+            margin: 5px 0 8px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #e2f0da, #c8e6c9);
+            width: fit-content;
+            margin: 5px auto 18px;
+            padding: 6px 28px;
+            border-radius: 40px;
+            color: #2d6a4f;
+            font-weight: bold;
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 0 20px rgba(200, 230, 201, 0.3);
+        }
+
+        /* CONTROLES DE NIVEL */
+        .level-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .level-btn {
+            background: linear-gradient(135deg, #2a5f7a, #1a3a5c);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #0e2a42, 0 0 20px rgba(42, 95, 122, 0.2);
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .level-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #0e2a42;
+        }
+
+        .level-btn.activo {
+            background: linear-gradient(135deg, #ffbf69, #ff9a56);
+            color: #2c4b2f;
+            box-shadow: 0 5px 0 #c16f2e, 0 0 30px rgba(255, 191, 105, 0.4);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .level-btn .badge {
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 0.9rem;
+        }
+
+        .level-btn.activo .badge {
+            background: rgba(44,75,47,0.15);
+        }
+
+        /* TABLERO DE CARTAS */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(145deg, #2a5f7a, #1a3a5c);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #0e2a42, 0 6px 12px rgba(0,0,0,0.3);
+            transition: all 0.15s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            min-height: 100px;
+            border: 3px solid #ffd966;
+            padding: 8px;
+        }
+
+        .card:active {
+            transform: scale(0.95);
+            box-shadow: 0 4px 0 #0e2a42;
+        }
+
+        .card .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 1rem;
+            text-align: center;
+            padding: 4px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card .card-content .emoji {
+            font-size: 2.8rem;
+        }
+
+        .card .card-content .nombre {
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card .card-content .funcion {
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 15px;
+            color: #e8f5e9;
+            line-height: 1.2;
+        }
+
+        .card.oculta {
+            background: linear-gradient(145deg, #2a5f7a, #1a3a5c);
+            color: transparent;
+        }
+
+        .card.oculta .card-content {
+            display: none;
+        }
+
+        .card.oculta::after {
+            content: "❓";
+            font-size: 3rem;
+            color: rgba(255,255,255,0.3);
+            position: absolute;
+        }
+
+        .card.descubierta {
+            background: white;
+            border: 4px solid #2c5e2a;
+            box-shadow: 0 4px 0 #1a3a18, 0 6px 12px rgba(0,0,0,0.2);
+            cursor: default;
+        }
+
+        .card.descubierta .card-content {
+            display: flex;
+        }
+
+        .card.descubierta::after {
+            display: none;
+        }
+
+        .card.encontrada {
+            background: linear-gradient(135deg, #caffbf, #a8e6cf);
+            border: 4px solid #2c5e2a;
+            box-shadow: 0 4px 0 #1a3a18, 0 0 30px rgba(202, 255, 191, 0.3);
+            cursor: default;
+            animation: foundPulse 0.5s ease;
+        }
+
+        .card.encontrada .card-content {
+            display: flex;
+        }
+
+        .card.encontrada::after {
+            display: none;
+        }
+
+        .card.seleccionada {
+            border: 4px solid #ffd966;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 4px 0 #b8962a;
+            transform: scale(1.03);
+        }
+
+        @keyframes foundPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* MENSAJE DE RESPUESTA */
+        .message-box {
+            background: linear-gradient(135deg, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #ffc6ff);
+            border-radius: 60px;
+            padding: 15px 25px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border: 4px solid white;
+            box-shadow: 0 6px 0 #bba88a, 0 0 40px rgba(255, 215, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+        .message-box .icono {
+            font-size: 3.5rem;
+        }
+
+        .message-box .texto {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1f3d2c;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .message-box .insignia {
+            font-size: 3rem;
+        }
+
+        /* CONTADOR */
+        .info-game {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-game .puntaje {
+            background: linear-gradient(135deg, #2c5e2a, #40916c);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0 #1a3a18, 0 0 20px rgba(44, 94, 42, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .info-game .intentos {
+            background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0 #0e2a42, 0 0 20px rgba(26, 58, 92, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-reiniciar {
+            background: linear-gradient(135deg, #ffbf69, #ff9a56);
+            border: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: #2c4b2f;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #c16f2e, 0 0 20px rgba(255, 191, 105, 0.3);
+            transition: 0.07s linear;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-reiniciar:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #c16f2e;
+        }
+
+        /* VICTORIA */
+        .victoria-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s;
+            backdrop-filter: blur(8px);
+        }
+
+        .victoria-overlay.mostrar {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .victoria-box {
+            background: linear-gradient(135deg, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #ffc6ff);
+            border-radius: 70px;
+            padding: 40px 50px;
+            text-align: center;
+            border: 6px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+            animation: bounceIn 0.6s ease;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .victoria-box::before {
+            content: "🎉🎊🎉🎊🎉🎊";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            font-size: 2rem;
+            opacity: 0.1;
+            pointer-events: none;
+            letter-spacing: 10px;
+            animation: confetiGiro 4s linear infinite;
+            border-radius: 80px;
+            overflow: hidden;
+        }
+
+        @keyframes confetiGiro {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+            70% { transform: scale(1.05) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .victoria-box .trofeo {
+            font-size: 5rem;
+            animation: trofeoBrillo 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes trofeoBrillo {
+            0% { transform: scale(1) rotate(-5deg); }
+            100% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .victoria-box h2 {
+            font-size: 2.5rem;
+            color: #2c5e2a;
+            margin: 10px 0;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+        }
+
+        .victoria-box p {
+            font-size: 1.3rem;
+            color: #1f3d2c;
+            margin-bottom: 20px;
+        }
+
+        .victoria-box .btn-jugar {
+            background: linear-gradient(135deg, #2c5e2a, #40916c);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 12px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #1a3a18, 0 0 20px rgba(44, 94, 42, 0.3);
+            transition: 0.07s linear;
+            margin: 5px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .victoria-box .btn-jugar:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #1a3a18;
+        }
+
+        .victoria-box .nivel-completado {
+            font-size: 1.5rem;
+            color: #1a3a5c;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .btn-planta {
+            background: linear-gradient(135deg, #6fbf4c, #52b788);
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #2c6e2f, 0 0 20px rgba(111, 191, 76, 0.3);
+            transition: 0.07s linear;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-planta:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #2c6e2f;
+        }
+
+        /* Responsive */
+        @media (max-width: 680px) {
+            .board {
+                gap: 10px;
+            }
+            .card {
+                min-height: 80px;
+                font-size: 1.8rem;
+            }
+            .card .card-content .emoji {
+                font-size: 2.2rem;
+            }
+            .card .card-content .nombre {
+                font-size: 0.8rem;
+            }
+            .card .card-content .funcion {
+                font-size: 0.6rem;
+            }
+            .message-box .texto {
+                font-size: 1rem;
+                padding: 5px 15px;
+            }
+            .header-ucv .logo-ucv { font-size: 1.2rem; }
+            .header-ucv .facultad { font-size: 0.8rem; }
+            h1 { font-size: 1.6rem; }
+            .victoria-box { padding: 25px 20px; }
+            .victoria-box h2 { font-size: 1.8rem; }
+            .level-btn { font-size: 0.9rem; padding: 6px 15px; }
+            .burbuja { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .board {
+                gap: 8px;
+            }
+            .card {
+                min-height: 65px;
+                border-radius: 12px;
+            }
+            .card .card-content .emoji {
+                font-size: 1.8rem;
+            }
+            .card .card-content .nombre {
+                font-size: 0.65rem;
+                padding: 2px 6px;
+            }
+            .card .card-content .funcion {
+                font-size: 0.5rem;
+                padding: 2px 4px;
+            }
+            .card.oculta::after {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Burbujas decorativas -->
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+
+    <div class="app-container">
+        <!-- ENCABEZADO UCV -->
+        <div class="header-ucv">
+            <div class="logo-ucv">🏛️ UNIVERSIDAD CÉSAR VALLEJO</div>
+            <div class="facultad">🎓 FACULTAD DE EDUCACIÓN · <span>EDUCACIÓN PRIMARIA</span></div>
+        </div>
+
+        <h1>🧠 Juego de Memoria 🌿</h1>
+        <div class="subtitulo">✨ Encuentra la pareja de cada parte de la planta ✨</div>
+
+        <!-- CONTROLES DE NIVEL -->
+        <div class="level-controls">
+            <button class="level-btn activo" data-nivel="1" id="nivel1Btn">
+                🌱 Nivel 1 <span class="badge">Partes</span>
+            </button>
+            <button class="level-btn" data-nivel="2" id="nivel2Btn">
+                🌿 Nivel 2 <span class="badge">Funciones</span>
+            </button>
+        </div>
+
+        <div class="game-container">
+            <!-- TABLERO -->
+            <div class="board" id="board"></div>
+
+            <!-- MENSAJE DE RESPUESTA -->
+            <div class="message-box" id="messageBox">
+                <div class="icono" id="msgIcono">🌱</div>
+                <div class="texto" id="msgTexto">¡Encuentra las parejas!</div>
+                <div class="insignia" id="msgInsignia">🎯</div>
+            </div>
+
+            <!-- INFO DEL JUEGO -->
+            <div class="info-game">
+                <div class="puntaje">🏆 <span id="paresEncontrados">0</span> / 4 parejas</div>
+                <div class="intentos">👆 <span id="intentos">0</span> intentos</div>
+                <button class="btn-reiniciar" id="btnReiniciar">🔄 Reiniciar</button>
+            </div>
+
+            <!-- Botón para volver a la planta -->
+            <button class="btn-planta" id="btnPlanta">🌻 Ir a la Planta Interactiva</button>
+        </div>
+
+        <!-- VICTORIA OVERLAY -->
+        <div class="victoria-overlay" id="victoriaOverlay">
+            <div class="victoria-box">
+                <div class="trofeo">🏆</div>
+                <h2>🎉 ¡Ganaste! 🎉</h2>
+                <div class="nivel-completado" id="nivelCompletado">🌟 Nivel 1 completado 🌟</div>
+                <p id="victoriaMensaje">¡Encontraste todas las parejas!<br>Eres un genio de las plantas 🌿</p>
+                <div style="font-size:2.5rem; margin:10px 0;" id="victoriaEmojis">🌟🌱🌟</div>
+                <button class="btn-jugar" id="btnJugar">🔄 Jugar de nuevo</button>
+                <button class="btn-jugar" id="btnSiguienteNivel" style="background:linear-gradient(135deg, #ffbf69, #ff9a56); color:#2c4b2f; box-shadow:0 6px 0 #c16f2e; border-color:rgba(255,255,255,0.3);">⬆️ Siguiente Nivel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== DATOS DEL JUEGO ==========
+        const nivel1Data = [
+            { id: 1, tipo: 'imagen', parte: 'raiz', emoji: '🌱', nombre: 'RAÍZ' },
+            { id: 2, tipo: 'nombre', parte: 'raiz', texto: 'RAÍZ' },
+            { id: 3, tipo: 'imagen', parte: 'tallo', emoji: '🌿', nombre: 'TALLO' },
+            { id: 4, tipo: 'nombre', parte: 'tallo', texto: 'TALLO' },
+            { id: 5, tipo: 'imagen', parte: 'hoja', emoji: '🍃', nombre: 'HOJA' },
+            { id: 6, tipo: 'nombre', parte: 'hoja', texto: 'HOJA' },
+            { id: 7, tipo: 'imagen', parte: 'flor', emoji: '🌸', nombre: 'FLOR' },
+            { id: 8, tipo: 'nombre', parte: 'flor', texto: 'FLOR' }
+        ];
+
+        const nivel2Data = [
+            { id: 1, tipo: 'nombre', parte: 'raiz', texto: 'RAÍZ' },
+            { id: 2, tipo: 'funcion', parte: 'raiz', funcion: 'Absorbe agua y fija la planta' },
+            { id: 3, tipo: 'nombre', parte: 'tallo', texto: 'TALLO' },
+            { id: 4, tipo: 'funcion', parte: 'tallo', funcion: 'Transporta agua y nutrientes' },
+            { id: 5, tipo: 'nombre', parte: 'hoja', texto: 'HOJA' },
+            { id: 6, tipo: 'funcion', parte: 'hoja', funcion: 'Fabrica alimento con el sol' },
+            { id: 7, tipo: 'nombre', parte: 'flor', texto: 'FLOR' },
+            { id: 8, tipo: 'funcion', parte: 'flor', funcion: 'Reproducción y forma frutos' }
+        ];
+
+        const mensajesAcierto = [
+            { icono: '🎉', texto: '¡Excelente! ¡Encontraste la pareja!', insignia: '🌟' },
+            { icono: '🏆', texto: '¡Muy bien! ¡Eres un campeón!', insignia: '👑' },
+            { icono: '🌟', texto: '¡Perfecto! ¡Sigue así!', insignia: '⭐' },
+            { icono: '🎊', texto: '¡Increíble! ¡Lo lograste!', insignia: '💪' },
+            { icono: '🌈', texto: '¡Genial! ¡Eres muy inteligente!', insignia: '🧠' }
+        ];
+
+        const mensajesError = [
+            { icono: '💪', texto: '¡Casi! ¡Inténtalo de nuevo!', insignia: '😊' },
+            { icono: '🌟', texto: '¡No te rindas! ¡Tú puedes!', insignia: '💪' },
+            { icono: '🌈', texto: '¡Ánimo! ¡La práctica hace al maestro!', insignia: '🎯' },
+            { icono: '🍀', texto: '¡Sigue intentando! ¡Lo lograrás!', insignia: '✨' },
+            { icono: '🌱', texto: '¡No importa! ¡Sigue adelante!', insignia: '🌻' }
+        ];
+
+        // ========== VARIABLES ==========
+        let nivelActual = 1;
+        let cartas = [];
+        let cartasSeleccionadas = [];
+        let paresEncontrados = 0;
+        let intentos = 0;
+        let bloqueado = false;
+        let primerClic = true;
+
+        const board = document.getElementById('board');
+        const msgIcono = document.getElementById('msgIcono');
+        const msgTexto = document.getElementById('msgTexto');
+        const msgInsignia = document.getElementById('msgInsignia');
+        const paresSpan = document.getElementById('paresEncontrados');
+        const intentosSpan = document.getElementById('intentos');
+        const victoriaOverlay = document.getElementById('victoriaOverlay');
+        const nivelCompletado = document.getElementById('nivelCompletado');
+        const victoriaMensaje = document.getElementById('victoriaMensaje');
+        const victoriaEmojis = document.getElementById('victoriaEmojis');
+        const btnSiguienteNivel = document.getElementById('btnSiguienteNivel');
+
+        // ========== FUNCIONES ==========
+        function mezclarArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function obtenerDatosNivel(nivel) {
+            return nivel === 1 ? nivel1Data : nivel2Data;
+        }
+
+        function inicializarJuego(nivel) {
+            nivelActual = nivel || nivelActual;
+            const datos = obtenerDatosNivel(nivelActual);
+            
+            cartas = datos.map((c, index) => ({
+                ...c,
+                cartaId: index,
+                descubierta: false,
+                encontrada: false
+            }));
+            cartas = mezclarArray(cartas);
+            cartasSeleccionadas = [];
+            paresEncontrados = 0;
+            intentos = 0;
+            bloqueado = false;
+            primerClic = true;
+
+            paresSpan.textContent = '0';
+            intentosSpan.textContent = '0';
+            victoriaOverlay.classList.remove('mostrar');
+            
+            const nivelTexto = nivelActual === 1 ? 'Partes' : 'Funciones';
+            mostrarMensaje('🌱', `Nivel ${nivelActual}: ${nivelTexto} - ¡Encuentra las parejas!`, '🎯');
+            renderizarTablero();
+
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                btn.classList.toggle('activo', parseInt(btn.dataset.nivel) === nivelActual);
+            });
+
+            btnSiguienteNivel.style.display = 'inline-block';
+        }
+
+        function renderizarTablero() {
+            board.innerHTML = '';
+            cartas.forEach((carta, index) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'card oculta';
+                cardDiv.dataset.index = index;
+                cardDiv.dataset.parte = carta.parte;
+                cardDiv.dataset.cartaId = carta.cartaId;
+
+                if (carta.encontrada) {
+                    cardDiv.className = 'card encontrada';
+                    cardDiv.innerHTML = crearContenidoCarta(carta);
+                } else if (carta.descubierta) {
+                    cardDiv.className = 'card descubierta';
+                    cardDiv.innerHTML = crearContenidoCarta(carta);
+                }
+
+                cardDiv.addEventListener('click', () => manejarClic(index));
+                board.appendChild(cardDiv);
+            });
+        }
+
+        function crearContenidoCarta(carta) {
+            if (carta.tipo === 'imagen') {
+                return `<div class="card-content">
+                            <div class="emoji">${carta.emoji}</div>
+                            <div class="nombre">${carta.nombre}</div>
+                        </div>`;
+            } else if (carta.tipo === 'nombre') {
+                return `<div class="card-content">
+                            <div class="emoji" style="font-size:2.5rem;">📝</div>
+                            <div class="nombre" style="font-size:1.5rem; background:#1a3a5c; padding:8px 15px;">${carta.texto}</div>
+                        </div>`;
+            } else if (carta.tipo === 'funcion') {
+                return `<div class="card-content">
+                            <div class="emoji" style="font-size:2.5rem;">💡</div>
+                            <div class="funcion" style="font-size:0.9rem; background:#2a5f7a; padding:8px 12px; border-radius:15px; color:white; line-height:1.3;">${carta.funcion}</div>
+                        </div>`;
+            }
+            return '';
+        }
+
+        function actualizarCarta(index) {
+            const cardElement = board.children[index];
+            const carta = cartas[index];
+            if (carta.encontrada) {
+                cardElement.className = 'card encontrada';
+                cardElement.innerHTML = crearContenidoCarta(carta);
+            } else if (carta.descubierta) {
+                cardElement.className = 'card descubierta';
+                cardElement.innerHTML = crearContenidoCarta(carta);
+            } else {
+                cardElement.className = 'card oculta';
+                cardElement.innerHTML = '';
+            }
+        }
+
+        function manejarClic(index) {
+            if (bloqueado) return;
+            const carta = cartas[index];
+            if (carta.encontrada || carta.descubierta) return;
+
+            reproducirSonido('click');
+
+            carta.descubierta = true;
+            actualizarCarta(index);
+            cartasSeleccionadas.push(index);
+
+            if (cartasSeleccionadas.length === 2) {
+                intentos++;
+                intentosSpan.textContent = intentos;
+                bloqueado = true;
+                verificarPareja();
+            } else {
+                if (primerClic) {
+                    primerClic = false;
+                    const nivelTexto = nivelActual === 1 ? 'Partes' : 'Funciones';
+                    mostrarMensaje('👆', `Nivel ${nivelActual}: Busca la pareja`, '🎯');
+                }
+            }
+        }
+
+        function verificarPareja() {
+            const idx1 = cartasSeleccionadas[0];
+            const idx2 = cartasSeleccionadas[1];
+            const carta1 = cartas[idx1];
+            const carta2 = cartas[idx2];
+
+            if (carta1.parte === carta2.parte && carta1.cartaId !== carta2.cartaId) {
+                carta1.encontrada = true;
+                carta2.encontrada = true;
+                carta1.descubierta = true;
+                carta2.descubierta = true;
+                paresEncontrados++;
+                paresSpan.textContent = paresEncontrados;
+
+                reproducirSonido('acierto');
+
+                const msg = mensajesAcierto[Math.floor(Math.random() * mensajesAcierto.length)];
+                mostrarMensaje(msg.icono, msg.texto, msg.insignia);
+
+                actualizarCarta(idx1);
+                actualizarCarta(idx2);
+
+                cartasSeleccionadas = [];
+                bloqueado = false;
+
+                if (paresEncontrados === 4) {
+                    setTimeout(() => {
+                        mostrarVictoria();
+                    }, 800);
+                }
+            } else {
+                reproducirSonido('error');
+
+                const msg = mensajesError[Math.floor(Math.random() * mensajesError.length)];
+                mostrarMensaje(msg.icono, msg.texto, msg.insignia);
+
+                setTimeout(() => {
+                    carta1.descubierta = false;
+                    carta2.descubierta = false;
+                    actualizarCarta(idx1);
+                    actualizarCarta(idx2);
+                    cartasSeleccionadas = [];
+                    bloqueado = false;
+                }, 1000);
+            }
+        }
+
+        function mostrarMensaje(icono, texto, insignia) {
+            msgIcono.textContent = icono;
+            msgTexto.textContent = texto;
+            msgInsignia.textContent = insignia;
+
+            const box = document.getElementById('messageBox');
+            box.style.transform = 'scale(1.03)';
+            box.style.transition = '0.1s';
+            setTimeout(() => box.style.transform = 'scale(1)', 150);
+        }
+
+        function mostrarVictoria() {
+            const nivelTexto = nivelActual === 1 ? 'Partes' : 'Funciones';
+            nivelCompletado.textContent = `🌟 Nivel ${nivelActual} (${nivelTexto}) completado 🌟`;
+            victoriaMensaje.textContent = nivelActual === 1 
+                ? '¡Encontraste todas las parejas de partes! ¡Sigue al Nivel 2! 🌿'
+                : '¡Encontraste todas las parejas de funciones! ¡Eres un experto en plantas! 🌟';
+            victoriaEmojis.textContent = nivelActual === 1 ? '🌟🌱🌟' : '🏆🌿🏆';
+            
+            btnSiguienteNivel.style.display = nivelActual === 1 ? 'inline-block' : 'none';
+            victoriaOverlay.classList.add('mostrar');
+            reproducirSonido('victoria');
+        }
+
+        // ========== SONIDOS ==========
+        function reproducirSonido(tipo) {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                let frecuencia = 440;
+                let duracion = 0.15;
+                let volumen = 0.15;
+
+                switch(tipo) {
+                    case 'click':
+                        frecuencia = 600;
+                        duracion = 0.08;
+                        volumen = 0.1;
+                        break;
+                    case 'acierto':
+                        oscillator.frequency.setValueAtTime(523, audioCtx.currentTime);
+                        oscillator.frequency.setValueAtTime(659, audioCtx.currentTime + 0.1);
+                        oscillator.frequency.setValueAtTime(784, audioCtx.currentTime + 0.2);
+                        duracion = 0.3;
+                        volumen = 0.2;
+                        break;
+                    case 'error':
+                        frecuencia = 300;
+                        duracion = 0.25;
+                        volumen = 0.15;
+                        break;
+                    case 'victoria':
+                        const notas = [523, 523, 523, 659, 784, 659, 784];
+                        notas.forEach((freq, i) => {
+                            setTimeout(() => {
+                                const osc2 = audioCtx.createOscillator();
+                                const gain2 = audioCtx.createGain();
+                                osc2.connect(gain2);
+                                gain2.connect(audioCtx.destination);
+                                osc2.frequency.value = freq;
+                                osc2.type = 'sine';
+                                gain2.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                                gain2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+                                osc2.start(audioCtx.currentTime);
+                                osc2.stop(audioCtx.currentTime + 0.15);
+                            }, i * 120);
+                        });
+                        return;
+                    default:
+                        frecuencia = 440;
+                }
+
+                oscillator.frequency.value = frecuencia;
+                oscillator.type = 'sine';
+                gainNode.gain.setValueAtTime(volumen, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duracion);
+                oscillator.start(audioCtx.currentTime);
+                oscillator.stop(audioCtx.currentTime + duracion);
+
+            } catch(e) {}
+        }
+
+        // ========== EVENTOS ==========
+        document.getElementById('btnReiniciar').addEventListener('click', () => {
+            inicializarJuego(nivelActual);
+        });
+
+        document.getElementById('btnJugar').addEventListener('click', () => {
+            inicializarJuego(nivelActual);
+        });
+
+        document.getElementById('btnSiguienteNivel').addEventListener('click', () => {
+            inicializarJuego(2);
+        });
+
+        document.getElementById('nivel1Btn').addEventListener('click', () => {
+            inicializarJuego(1);
+        });
+
+        document.getElementById('nivel2Btn').addEventListener('click', () => {
+            inicializarJuego(2);
+        });
+
+        document.getElementById('btnPlanta').addEventListener('click', () => {
+            alert('🌻 ¡Vamos a la planta interactiva! (Abre la página principal)');
+        });
+
+        // ========== INICIALIZAR ==========
+        inicializarJuego(1);
+    </script>
+</body>
+</html>

@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Estilos personalizados para animaciones y accesibilidad */
     body {
       font-family: 'Quicksand', 'Comic Sans MS', 'Montserrat', sans-serif;
       background: linear-gradient(145deg, #fef9e3 0%, #f0f7e8 100%);
@@ -77,7 +76,7 @@
       border: 3px dashed #8b6946;
       border-radius: 1.8rem;
       transition: all 0.15s;
-      min-height: 180px;
+      min-height: 140px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -94,6 +93,7 @@
     .drop-slot.waiting-touch {
       border-color: #4caf50;
       background: #f1f8e9;
+      border-style: solid;
     }
     
     .slot-filled {
@@ -133,12 +133,10 @@
       text-align: center;
     }
 
-    /* Animaciones para el SVG de la maceta central */
     .pot-svg-container svg {
       filter: drop-shadow(2px 6px 10px rgba(0,0,0,0.15));
     }
 
-    /* Confeti animado */
     .confetti-particle {
       position: fixed;
       pointer-events: none;
@@ -174,3 +172,352 @@
           <ellipse cx="58" cy="65" rx="6" ry="4" fill="#8BC34A">
             <animate attributeName="ry" values="4;6;4" dur="1.2s" repeatCount="indefinite" />
           </ellipse>
+          <text x="52" y="58" font-size="7" fill="#2E7D32">✨</text>
+        </svg>
+      </div>
+      <p>La <span class="vocab-word" data-vocab="semilla">semilla</span> 🌱 brota dentro de la tierra.</p>
+      <div class="mt-2 text-sm bg-green-100 rounded-full px-3 py-1 inline-block">🌿 ¡Primera hoja!</div>
+    </div>
+
+    <div id="card-crece" class="stage-card p-4 text-center border-4 border-lime-500" data-stage="crece">
+      <h2 class="text-2xl font-black text-lime-700">📏 CRECE</h2>
+      <div class="pot-svg-container my-2 flex justify-center">
+        <svg width="130" height="130" viewBox="0 0 120 120">
+          <path d="M35,85 L45,105 L75,105 L85,85 Z" fill="#C48B57" stroke="#8B5A2B" stroke-width="2" />
+          <rect x="30" y="75" width="60" height="12" rx="4" fill="#B87C3A" />
+          <ellipse cx="60" cy="90" rx="22" ry="8" fill="#6B3E1A" />
+          <path d="M60,90 L60,45" stroke="#3F8E2C" stroke-width="5" stroke-linecap="round">
+            <animate attributeName="d" values="M60,90 L60,45;M60,90 L60,40;M60,90 L60,45" dur="1.8s" repeatCount="indefinite" />
+          </path>
+          <ellipse cx="55" cy="50" rx="10" ry="6" fill="#6FBF4C" />
+          <ellipse cx="68" cy="55" rx="9" ry="5" fill="#7CCF55" />
+          <text x="58" y="38" font-size="8" fill="#3E721D">⬆️</text>
+        </svg>
+      </div>
+      <p>El <span class="vocab-word" data-vocab="tallo">tallo</span> se alarga y las <span class="vocab-word" data-vocab="hojas">hojas</span> crecen.</p>
+      <div class="mt-2 text-sm bg-lime-100 rounded-full px-3 py-1">💪 ¡Más fuerte!</div>
+    </div>
+
+    <div id="card-reproduce" class="stage-card p-4 text-center border-4 border-yellow-400" data-stage="reproduce">
+      <h2 class="text-2xl font-black text-amber-600">🌸 SE REPRODUCE</h2>
+      <div class="pot-svg-container my-2 flex justify-center">
+        <svg width="130" height="130" viewBox="0 0 120 120">
+          <path d="M35,85 L45,105 L75,105 L85,85 Z" fill="#C48B57" stroke="#8B5A2B" stroke-width="2" />
+          <rect x="30" y="75" width="60" height="12" rx="4" fill="#B87C3A" />
+          <ellipse cx="60" cy="90" rx="22" ry="8" fill="#6B3E1A" />
+          <path d="M60,90 L60,35" stroke="#4F9E2C" stroke-width="5" />
+          <circle cx="60" cy="32" r="10" fill="#FFD966" />
+          <circle cx="60" cy="32" r="5" fill="#F4A261" />
+          <circle cx="60" cy="22" r="6" fill="#FFB347" />
+          <circle cx="70" cy="27" r="6" fill="#FFB347" />
+          <circle cx="68" cy="38" r="6" fill="#FFB347" />
+          <circle cx="52" cy="38" r="6" fill="#FFB347" />
+          <circle cx="50" cy="27" r="6" fill="#FFB347" />
+          <circle cx="58" cy="48" r="2" fill="#A5673F">
+            <animate attributeName="cy" values="48;70;90" dur="2.2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;0.7;0" dur="2.2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="64" cy="44" r="2" fill="#A5673F">
+            <animate attributeName="cy" values="44;68;88" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+      <p>Aparece una hermosa <span class="vocab-word" data-vocab="flor">flor</span> y caen <span class="vocab-word" data-vocab="semillas">semillas</span>.</p>
+      <div class="mt-2 text-sm bg-amber-100 rounded-full px-3 py-1">🐝 ¡Nuevas semillas!</div>
+    </div>
+
+    <div id="card-muere" class="stage-card p-4 text-center border-4 border-stone-400" data-stage="muere">
+      <h2 class="text-2xl font-black text-stone-700">🍂 MUERE</h2>
+      <div class="pot-svg-container my-2 flex justify-center">
+        <svg width="130" height="130" viewBox="0 0 120 120">
+          <path d="M35,85 L45,105 L75,105 L85,85 Z" fill="#C48B57" stroke="#8B5A2B" stroke-width="2" />
+          <rect x="30" y="75" width="60" height="12" rx="4" fill="#B87C3A" />
+          <ellipse cx="60" cy="90" rx="22" ry="8" fill="#6B3E1A" />
+          <path d="M60,90 L60,50" stroke="#8B6B42" stroke-width="3" opacity="0.7" />
+          <ellipse cx="58" cy="56" rx="6" ry="3" fill="#B87B3A" opacity="0.8" />
+          <ellipse cx="67" cy="62" rx="5" ry="2" fill="#C89A5C" opacity="0.7" />
+          <path d="M62,90 Q62,82 60,78" stroke="#8BC34A" stroke-width="2" fill="none">
+            <animate attributeName="opacity" values="0;1;0.5;1" dur="3s" repeatCount="indefinite" />
+          </path>
+          <circle cx="60" cy="76" r="2.5" fill="#6FBF4C">
+            <animate attributeName="r" values="2.5;3;2.5" dur="1.4s" repeatCount="indefinite" />
+          </circle>
+          <text x="70" y="98" font-size="6" fill="#4a6741">✦ nutrientes ✦</text>
+        </svg>
+      </div>
+      <p>La planta se seca, da <span class="vocab-word" data-vocab="nutrientes">nutrientes</span> y deja nuevas semillas.</p>
+      <div class="mt-2 text-sm bg-stone-200 rounded-full px-3 py-1">🔄 Un nuevo ciclo comenzará</div>
+    </div>
+  </div>
+
+  <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-4 md:p-6 shadow-xl mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-amber-800 mb-2"><i class="fas fa-seedling text-green-600"></i> 🧩 Juego: Ordena el ciclo de la planta</h2>
+    <p class="text-center text-base md:text-lg mb-5">Arrastra las macetas o <b>toca una y luego selecciona su número</b> para ordenar el ciclo (1 → 4).</p>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-8 p-4 bg-amber-50/80 rounded-2xl">
+      <div class="drag-pot" data-drag="reproduce" draggable="true">
+        <i class="fas fa-flower text-3xl text-yellow-600"></i>
+        <span class="font-bold">🌸 Reproduce</span>
+        <svg width="50" height="45" viewBox="0 0 50 45"><rect x="10" y="28" width="30" height="12" fill="#C48B57"/><circle cx="25" cy="20" r="8" fill="#FFD966"/></svg>
+      </div>
+      <div class="drag-pot" data-drag="muere" draggable="true">
+        <i class="fas fa-leaf text-3xl text-stone-500"></i>
+        <span class="font-bold">🍂 Muere</span>
+        <svg width="50" height="45" viewBox="0 0 50 45"><rect x="10" y="28" width="30" height="12" fill="#C48B57"/><path d="M25,25 L25,15" stroke="#8B6B42"/><circle cx="24" cy="14" r="3" fill="#B87B3A"/></svg>
+      </div>
+      <div class="drag-pot" data-drag="nace" draggable="true">
+        <i class="fas fa-seedling text-3xl text-green-500"></i>
+        <span class="font-bold">🌱 Nace</span>
+        <svg width="50" height="45" viewBox="0 0 50 45"><rect x="10" y="28" width="30" height="12" fill="#C48B57"/><path d="M25,30 L25,22" stroke="#5C9E3E"/><ellipse cx="25" cy="20" rx="4" ry="3" fill="#8BC34A"/></svg>
+      </div>
+      <div class="drag-pot" data-drag="crece" draggable="true">
+        <i class="fas fa-tree text-3xl text-lime-600"></i>
+        <span class="font-bold">📏 Crece</span>
+        <svg width="50" height="45" viewBox="0 0 50 45"><rect x="10" y="28" width="30" height="12" fill="#C48B57"/><path d="M25,30 L25,16" stroke="#3F8E2C"/><ellipse cx="23" cy="20" rx="5" ry="4" fill="#6FBF4C"/></svg>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="drop-slot p-3 text-center" data-slot="0" data-expected="nace">
+        <p class="font-extrabold text-green-800 text-lg">1️⃣ NACER <i class="fas fa-seedling"></i></p>
+        <div class="slot-content flex flex-col items-center justify-center min-h-[80px] text-gray-500">⬅️ Esperando maceta</div>
+      </div>
+      <div class="drop-slot p-3 text-center" data-slot="1" data-expected="crece">
+        <p class="font-extrabold text-lime-700 text-lg">2️⃣ CRECER <i class="fas fa-leaf"></i></p>
+        <div class="slot-content flex flex-col items-center justify-center min-h-[80px] text-gray-500">⬅️ Esperando maceta</div>
+      </div>
+      <div class="drop-slot p-3 text-center" data-slot="2" data-expected="reproduce">
+        <p class="font-extrabold text-amber-700 text-lg">3️⃣ REPRODUCIRSE <i class="fas fa-flower"></i></p>
+        <div class="slot-content flex flex-col items-center justify-center min-h-[80px] text-gray-500">⬅️ Esperando maceta</div>
+      </div>
+      <div class="drop-slot p-3 text-center" data-slot="3" data-expected="muere">
+        <p class="font-extrabold text-stone-700 text-lg">4️⃣ MORIR / ABONAR <i class="fas fa-recycle"></i></p>
+        <div class="slot-content flex flex-col items-center justify-center min-h-[80px] text-gray-500">⬅️ Esperando maceta</div>
+      </div>
+    </div>
+   
+    <div class="flex justify-center mt-7">
+      <button id="resetGameBtn" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-7 rounded-full text-xl shadow-md transition-all"><i class="fas fa-undo-alt"></i> Reiniciar juego</button>
+    </div>
+  </div>
+  <div id="toastMsg" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-5 py-2 rounded-full text-center font-bold z-50 transition-all duration-300 opacity-0 pointer-events-none"></div>
+</div>
+
+<script>
+  let mobileSelectedStage = null;
+  let slotsState = [null, null, null, null];
+  
+  const dragPots = document.querySelectorAll('.drag-pot');
+  const dropSlots = document.querySelectorAll('.drop-slot');
+
+  // Sistema de partículas / Confeti
+  function showVisualFeedback(element, message, withConfetti = true) {
+    if (!element) return;
+    element.classList.add('visual-feedback');
+    setTimeout(() => element.classList.remove('visual-feedback'), 400);
+
+    if (withConfetti) {
+      for (let i = 0; i < 22; i++) {
+        const star = document.createElement('i');
+        star.className = 'fas fa-star confetti-particle';
+        star.style.color = `hsl(${Math.random() * 60 + 30}, 100%, 60%)`;
+        star.style.fontSize = `${Math.random() * 18 + 12}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.position = 'fixed';
+        star.style.animation = 'fall 0.8s ease-out forwards';
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 800);
+      }
+    }
+    const toast = document.getElementById('toastMsg');
+    toast.textContent = message + " ✨🎉";
+    toast.style.opacity = '1';
+    setTimeout(() => toast.style.opacity = '0', 1400);
+  }
+
+  // Estilos de animación de caída inyectados
+  const style = document.createElement('style');
+  style.textContent = `@keyframes fall { 0% { transform: translateY(-30px) rotate(0deg); opacity: 1; } 100% { transform: translateY(500px) rotate(300deg); opacity: 0; } }`;
+  document.head.appendChild(style);
+
+  // Diccionario de Vocabulario
+  const vocabInfo = {
+    semilla: "🌱 La semilla es el bebé de la planta. ¡Necesita agua y tierra!",
+    maceta: "🏺 La maceta contiene la tierra donde vive la planta.",
+    tallo: "🌿 El tallo sostiene las hojas y transporta agua.",
+    hojas: "🍃 Las hojas toman la luz del sol para hacer comida.",
+    flor: "🌸 La flor atrae insectos y produce nuevas semillas.",
+    nutrientes: "💚 La planta muerta se convierte en abono que alimenta nuevas semillas.",
+  };
+  
+  let activeTip = null;
+  function showTooltip(word, event) {
+    if (activeTip) activeTip.remove();
+    const desc = vocabInfo[word] || `Observa: ${word} es importante en el ciclo de vida.`;
+    const tipDiv = document.createElement('div');
+    tipDiv.className = 'vocab-tooltip';
+    tipDiv.innerHTML = `<i class="fas fa-eye text-green-600 mr-2"></i><strong>${word.toUpperCase()}</strong><br>${desc}`;
+    const rect = event.target.getBoundingClientRect();
+    tipDiv.style.left = `${rect.left + window.scrollX - 20}px`;
+    tipDiv.style.top = `${rect.bottom + window.scrollY + 8}px`;
+    document.body.appendChild(tipDiv);
+    activeTip = tipDiv;
+    setTimeout(() => { if(activeTip) activeTip.remove(); activeTip = null; }, 2800);
+  }
+
+  function updateGameUI() {
+    dropSlots.forEach((slot, idx) => {
+      const contentDiv = slot.querySelector('.slot-content');
+      if (slotsState[idx]) {
+        let pretty = "";
+        if(slotsState[idx] === 'nace') pretty = "🌱 NACE ✔️";
+        else if(slotsState[idx] === 'crece') pretty = "📏 CRECE ✔️";
+        else if(slotsState[idx] === 'reproduce') pretty = "🌸 REPRODUCE ✔️";
+        else pretty = "🍂 MUERE ✔️";
+        contentDiv.innerHTML = `<span class="font-bold text-green-800 text-base md:text-lg">${pretty}</span> <i class="fas fa-check-circle text-green-600 text-xl"></i>`;
+        slot.classList.add('slot-filled');
+        slot.classList.remove('waiting-touch');
+      } else {
+        contentDiv.innerHTML = `<span class="text-gray-500 text-sm md:text-base">⬅️ Esperando maceta</span>`;
+        slot.classList.remove('slot-filled');
+        if (mobileSelectedStage) {
+          slot.classList.add('waiting-touch');
+        } else {
+          slot.classList.remove('waiting-touch');
+        }
+      }
+    });
+
+    if(slotsState.every(v => v !== null)) {
+      showVisualFeedback(document.querySelector('.drop-slot'), "🎉 ¡Excelente! Completaste el ciclo de la planta 🎉🌱", true);
+    }
+  }
+
+  function handleDropOnSlot(slot, draggedStage) {
+    const slotIndex = parseInt(slot.getAttribute('data-slot'));
+    const expectedStage = slot.getAttribute('data-expected');
+    
+    if (slotsState[slotIndex] === null && draggedStage === expectedStage) {
+      slotsState[slotIndex] = draggedStage;
+      mobileSelectedStage = null;
+      dragPots.forEach(p => p.classList.remove('mobile-selected'));
+      
+      updateGameUI();
+      showVisualFeedback(slot, `✅ ¡Correcto! ${draggedStage.toUpperCase()} colocado`, true);
+      
+      const draggedElement = Array.from(dragPots).find(el => el.getAttribute('data-drag') === draggedStage);
+      if(draggedElement) {
+        draggedElement.style.display = 'none';
+        draggedElement.setAttribute('draggable', 'false');
+      }
+    } else if (slotsState[slotIndex] !== null) {
+      showVisualFeedback(slot, "❌ Este lugar ya está ocupado", false);
+    } else {
+      showVisualFeedback(slot, `⚠️ Posición incorrecta. Aquí corresponde: ${expectedStage.toUpperCase()}`, false);
+    }
+  }
+
+  // Inicializador General del Juego seguro
+  function initGame() {
+    // Vincular Vocabulario
+    document.querySelectorAll('.vocab-word').forEach(el => {
+      const vocab = el.getAttribute('data-vocab') || el.innerText.trim().toLowerCase();
+      el.addEventListener('click', (e) => { e.stopPropagation(); showTooltip(vocab, e); });
+      el.addEventListener('touchstart', (e) => { e.preventDefault(); e.stopPropagation(); showTooltip(vocab, e); });
+    });
+
+    // Vincular Tarjetas del Dashboard
+    document.querySelectorAll('.stage-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if(e.target.classList && e.target.classList.contains('vocab-word')) return;
+        const stage = card.getAttribute('data-stage');
+        let msg = "";
+        if(stage === 'nace') msg = "🌱 ¡La semilla rompe la tierra y nace!";
+        else if(stage === 'crece') msg = "📏 ¡El tallo crece y las hojas se hacen grandes!";
+        else if(stage === 'reproduce') msg = "🌸 ¡Aparece la flor y caen semillas!";
+        else msg = "🍂 La planta vuelve a la tierra y deja el suelo listo.";
+        showVisualFeedback(card, msg, true);
+      });
+    });
+
+    // Configurar elementos arrastrables (Macetas)
+    dragPots.forEach(pot => {
+      pot.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', pot.getAttribute('data-drag'));
+        pot.classList.add('dragging');
+      });
+      pot.addEventListener('dragend', () => pot.classList.remove('dragging'));
+
+      const handleSelection = (e) => {
+        if(pot.getAttribute('draggable') === 'false') return;
+        e.stopPropagation();
+        const currentStage = pot.getAttribute('data-drag');
+
+        if (mobileSelectedStage === currentStage) {
+          mobileSelectedStage = null;
+          pot.classList.remove('mobile-selected');
+        } else {
+          dragPots.forEach(p => p.classList.remove('mobile-selected'));
+          mobileSelectedStage = currentStage;
+          pot.classList.add('mobile-selected');
+        }
+        updateGameUI();
+      };
+
+      pot.addEventListener('click', handleSelection);
+      pot.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleSelection(e);
+      });
+    });
+
+    // Configurar espacios de destino (Casillas)
+    dropSlots.forEach(slot => {
+      slot.addEventListener('dragover', (e) => { e.preventDefault(); slot.classList.add('drag-over'); });
+      slot.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
+      slot.addEventListener('drop', (e) => {
+        e.preventDefault();
+        slot.classList.remove('drag-over');
+        const draggedStage = e.dataTransfer.getData('text/plain');
+        handleDropOnSlot(slot, draggedStage);
+      });
+
+      const handleSlotTrigger = () => {
+        if (mobileSelectedStage) {
+          handleDropOnSlot(slot, mobileSelectedStage);
+        }
+      };
+      slot.addEventListener('click', handleSlotTrigger);
+      slot.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleSlotTrigger();
+      });
+    });
+
+    // Inicializar Interfaz
+    updateGameUI();
+  }
+
+  // Reset del juego
+  document.getElementById('resetGameBtn').addEventListener('click', () => {
+    slotsState = [null, null, null, null];
+    mobileSelectedStage = null;
+    dragPots.forEach(pot => {
+      pot.classList.remove('mobile-selected');
+      pot.style.display = 'flex';
+      pot.setAttribute('draggable', 'true');
+    });
+    updateGameUI();
+    const toast = document.getElementById('toastMsg');
+    toast.textContent = "🔄 ¡Tablero limpio! Vuelve a ordenar las macetas.";
+    toast.style.opacity = '1';
+    setTimeout(() => toast.style.opacity = '0', 1500);
+  });
+
+  // Ejecución segura al cargar completamente la ventana
+  window.addEventListener('DOMContentLoaded', initGame);
+</script>
+
+</body>
+</html>

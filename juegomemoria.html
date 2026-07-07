@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10px; /* Reducido para pantallas pequeñas */
             position: relative;
             overflow-x: hidden;
         }
@@ -96,9 +96,9 @@
             width: 100%;
             background: rgba(255, 255, 245, 0.92);
             backdrop-filter: blur(10px);
-            border-radius: 75px 75px 65px 65px;
+            border-radius: 40px; /* Ajustado para mejor adaptabilidad */
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.3);
-            padding: 20px 25px 35px;
+            padding: 20px 15px;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -108,8 +108,8 @@
         /* ENCABEZADO UCV */
         .header-ucv {
             background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
-            border-radius: 50px 50px 30px 30px;
-            padding: 12px 25px;
+            border-radius: 25px;
+            padding: 12px 20px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -121,19 +121,19 @@
         }
 
         .header-ucv .logo-ucv {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #ffd966;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 0 #0e2a42;
         }
 
         .header-ucv .facultad {
             color: #c8e6ff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             background: rgba(255,255,255,0.15);
-            padding: 5px 18px;
+            padding: 5px 15px;
             border-radius: 30px;
             border: 2px solid #ffd966;
         }
@@ -143,10 +143,10 @@
         }
 
         h1 {
-            font-size: 2.3rem;
+            font-size: 2rem;
             background: linear-gradient(135deg, #ffbf69, #ff9a56);
             display: inline-block;
-            padding: 8px 35px;
+            padding: 8px 25px;
             border-radius: 60px;
             color: #2c4b2f;
             box-shadow: 0 7px 0 #c16f2e, 0 0 30px rgba(255, 191, 105, 0.3);
@@ -155,11 +155,11 @@
         }
 
         .subtitulo {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             background: linear-gradient(135deg, #e2f0da, #c8e6c9);
             width: fit-content;
             margin: 5px auto 18px;
-            padding: 6px 28px;
+            padding: 6px 20px;
             border-radius: 40px;
             color: #2d6a4f;
             font-weight: bold;
@@ -171,7 +171,7 @@
         .level-controls {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 15px;
             flex-wrap: wrap;
         }
@@ -180,16 +180,16 @@
             background: linear-gradient(135deg, #2a5f7a, #1a3a5c);
             color: white;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 10px 28px;
+            padding: 8px 20px;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 5px 0 #0e2a42, 0 0 20px rgba(42, 95, 122, 0.2);
             transition: all 0.1s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: 2px solid rgba(255,255,255,0.2);
         }
 
@@ -208,8 +208,8 @@
         .level-btn .badge {
             background: rgba(255,255,255,0.2);
             border-radius: 30px;
-            padding: 2px 12px;
-            font-size: 0.9rem;
+            padding: 2px 10px;
+            font-size: 0.85rem;
         }
 
         .level-btn.activo .badge {
@@ -220,8 +220,8 @@
         .board {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            max-width: 600px;
+            gap: 12px;
+            max-width: 540px;
             width: 100%;
             margin: 0 auto;
         }
@@ -229,26 +229,23 @@
         .card {
             aspect-ratio: 1 / 1;
             background: linear-gradient(145deg, #2a5f7a, #1a3a5c);
-            border-radius: 20px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
             cursor: pointer;
-            box-shadow: 0 8px 0 #0e2a42, 0 6px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 0 #0e2a42, 0 4px 8px rgba(0,0,0,0.3);
             transition: all 0.15s ease;
             position: relative;
             transform-style: preserve-3d;
-            min-height: 100px;
+            min-height: 80px;
             border: 3px solid #ffd966;
-            padding: 8px;
+            padding: 4px;
         }
 
         .card:active {
             transform: scale(0.95);
-            box-shadow: 0 4px 0 #0e2a42;
+            box-shadow: 0 2px 0 #0e2a42;
         }
 
         .card .card-content {
@@ -257,33 +254,39 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
-            font-size: 1rem;
             text-align: center;
-            padding: 4px;
             width: 100%;
             height: 100%;
         }
 
         .card .card-content .emoji {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
         }
 
         .card .card-content .nombre {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: rgba(255,255,255,0.15);
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
             color: white;
             font-weight: bold;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .card .card-content .funcion {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.1);
-            padding: 4px 8px;
-            border-radius: 15px;
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.15);
+            padding: 3px 6px;
+            border-radius: 10px;
             color: #e8f5e9;
             line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .card.oculta {
@@ -297,15 +300,15 @@
 
         .card.oculta::after {
             content: "❓";
-            font-size: 3rem;
+            font-size: 2.2rem;
             color: rgba(255,255,255,0.3);
             position: absolute;
         }
 
         .card.descubierta {
             background: white;
-            border: 4px solid #2c5e2a;
-            box-shadow: 0 4px 0 #1a3a18, 0 6px 12px rgba(0,0,0,0.2);
+            border: 3px solid #2c5e2a;
+            box-shadow: 0 4px 0 #1a3a18, 0 4px 8px rgba(0,0,0,0.2);
             cursor: default;
         }
 
@@ -319,8 +322,8 @@
 
         .card.encontrada {
             background: linear-gradient(135deg, #caffbf, #a8e6cf);
-            border: 4px solid #2c5e2a;
-            box-shadow: 0 4px 0 #1a3a18, 0 0 30px rgba(202, 255, 191, 0.3);
+            border: 3px solid #2c5e2a;
+            box-shadow: 0 4px 0 #1a3a18, 0 0 20px rgba(202, 255, 191, 0.3);
             cursor: default;
             animation: foundPulse 0.5s ease;
         }
@@ -334,8 +337,8 @@
         }
 
         .card.seleccionada {
-            border: 4px solid #ffd966;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 4px 0 #b8962a;
+            border: 3px solid #ffd966;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 4px 0 #b8962a;
             transform: scale(1.03);
         }
 
@@ -348,37 +351,37 @@
         /* MENSAJE DE RESPUESTA */
         .message-box {
             background: linear-gradient(135deg, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #ffc6ff);
-            border-radius: 60px;
-            padding: 15px 25px;
-            min-height: 80px;
+            border-radius: 40px;
+            padding: 12px 20px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            border: 4px solid white;
-            box-shadow: 0 6px 0 #bba88a, 0 0 40px rgba(255, 215, 0, 0.2);
+            border: 3px solid white;
+            box-shadow: 0 5px 0 #bba88a, 0 0 35px rgba(255, 215, 0, 0.2);
             width: 100%;
-            max-width: 600px;
-            margin: 10px auto;
+            max-width: 540px;
+            margin: 12px auto;
         }
 
         .message-box .icono {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
         }
 
         .message-box .texto {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
             color: #1f3d2c;
             background: white;
-            padding: 8px 20px;
-            border-radius: 40px;
+            padding: 6px 15px;
+            border-radius: 30px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .message-box .insignia {
-            font-size: 3rem;
+            font-size: 2.2rem;
         }
 
         /* CONTADOR */
@@ -387,59 +390,51 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 600px;
-            gap: 20px;
+            max-width: 540px;
+            gap: 12px;
             flex-wrap: wrap;
+            margin: 0 auto;
         }
 
-        .info-game .puntaje {
+        .info-game .puntaje, .info-game .intentos {
             background: linear-gradient(135deg, #2c5e2a, #40916c);
             color: white;
-            padding: 8px 20px;
+            padding: 6px 15px;
             border-radius: 40px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            box-shadow: 0 4px 0 #1a3a18, 0 0 20px rgba(44, 94, 42, 0.2);
+            box-shadow: 0 4px 0 #1a3a18, 0 0 15px rgba(44, 94, 42, 0.2);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: 2px solid rgba(255,255,255,0.2);
         }
 
         .info-game .intentos {
             background: linear-gradient(135deg, #1a3a5c, #2a5f7a);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 0 #0e2a42, 0 0 20px rgba(26, 58, 92, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 0 #0e2a42, 0 0 15px rgba(26, 58, 92, 0.2);
         }
 
         .btn-reiniciar {
             background: linear-gradient(135deg, #ffbf69, #ff9a56);
             border: none;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 50px;
             color: #2c4b2f;
             cursor: pointer;
-            box-shadow: 0 6px 0 #c16f2e, 0 0 20px rgba(255, 191, 105, 0.3);
+            box-shadow: 0 5px 0 #c16f2e, 0 0 15px rgba(255, 191, 105, 0.3);
             transition: 0.07s linear;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: 2px solid rgba(255,255,255,0.3);
         }
 
         .btn-reiniciar:active {
             transform: translateY(4px);
-            box-shadow: 0 2px 0 #c16f2e;
+            box-shadow: 0 1px 0 #c16f2e;
         }
 
         /* VICTORIA */
@@ -456,6 +451,7 @@
             z-index: 1000;
             animation: fadeIn 0.5s;
             backdrop-filter: blur(8px);
+            padding: 15px;
         }
 
         .victoria-overlay.mostrar {
@@ -469,29 +465,27 @@
 
         .victoria-box {
             background: linear-gradient(135deg, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #ffc6ff);
-            border-radius: 70px;
-            padding: 40px 50px;
+            border-radius: 40px;
+            padding: 30px 25px;
             text-align: center;
-            border: 6px solid white;
+            border: 4px solid white;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 60px rgba(255, 215, 0, 0.2);
             animation: bounceIn 0.6s ease;
-            max-width: 500px;
+            max-width: 460px;
+            width: 100%;
             position: relative;
         }
 
         .victoria-box::before {
             content: "🎉🎊🎉🎊🎉🎊";
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            font-size: 2rem;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            font-size: 1.5rem;
             opacity: 0.1;
             pointer-events: none;
-            letter-spacing: 10px;
+            letter-spacing: 8px;
             animation: confetiGiro 4s linear infinite;
-            border-radius: 80px;
+            border-radius: 50px;
             overflow: hidden;
         }
 
@@ -507,7 +501,7 @@
         }
 
         .victoria-box .trofeo {
-            font-size: 5rem;
+            font-size: 4rem;
             animation: trofeoBrillo 1s ease-in-out infinite alternate;
         }
 
@@ -517,14 +511,14 @@
         }
 
         .victoria-box h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #2c5e2a;
             margin: 10px 0;
             text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
         }
 
         .victoria-box p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: #1f3d2c;
             margin-bottom: 20px;
         }
@@ -533,12 +527,12 @@
             background: linear-gradient(135deg, #2c5e2a, #40916c);
             color: white;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            padding: 12px 35px;
+            padding: 10px 25px;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 6px 0 #1a3a18, 0 0 20px rgba(44, 94, 42, 0.3);
+            box-shadow: 0 5px 0 #1a3a18, 0 0 20px rgba(44, 94, 42, 0.3);
             transition: 0.07s linear;
             margin: 5px;
             border: 2px solid rgba(255,255,255,0.2);
@@ -550,7 +544,7 @@
         }
 
         .victoria-box .nivel-completado {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #1a3a5c;
             margin: 10px 0;
             font-weight: bold;
@@ -559,18 +553,18 @@
         .btn-planta {
             background: linear-gradient(135deg, #6fbf4c, #52b788);
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             padding: 10px 25px;
             border-radius: 50px;
             color: white;
             cursor: pointer;
-            box-shadow: 0 6px 0 #2c6e2f, 0 0 20px rgba(111, 191, 76, 0.3);
+            box-shadow: 0 5px 0 #2c6e2f, 0 0 20px rgba(111, 191, 76, 0.3);
             transition: 0.07s linear;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 15px;
             border: 2px solid rgba(255,255,255,0.2);
         }
 
@@ -579,64 +573,59 @@
             box-shadow: 0 2px 0 #2c6e2f;
         }
 
-        /* Responsive */
+        /* =======================================================
+           SECCIÓN DE RESPONSIVIDAD OPTIMIZADA PARA CELULARES
+        ======================================================= */
         @media (max-width: 680px) {
-            .board {
-                gap: 10px;
-            }
-            .card {
-                min-height: 80px;
-                font-size: 1.8rem;
-            }
-            .card .card-content .emoji {
-                font-size: 2.2rem;
-            }
-            .card .card-content .nombre {
-                font-size: 0.8rem;
-            }
-            .card .card-content .funcion {
-                font-size: 0.6rem;
-            }
-            .message-box .texto {
-                font-size: 1rem;
-                padding: 5px 15px;
-            }
-            .header-ucv .logo-ucv { font-size: 1.2rem; }
-            .header-ucv .facultad { font-size: 0.8rem; }
-            h1 { font-size: 1.6rem; }
-            .victoria-box { padding: 25px 20px; }
-            .victoria-box h2 { font-size: 1.8rem; }
-            .level-btn { font-size: 0.9rem; padding: 6px 15px; }
+            .app-container { border-radius: 25px; padding: 15px 10px; }
+            .header-ucv .logo-ucv { font-size: 1.3rem; }
+            .header-ucv .facultad { font-size: 0.85rem; padding: 4px 10px; }
+            h1 { font-size: 1.5rem; padding: 6px 20px; }
+            .subtitulo { font-size: 0.95rem; padding: 4px 15px; margin-bottom: 12px; }
+            .level-btn { font-size: 0.95rem; padding: 6px 15px; }
+            .board { gap: 8px; }
+            .card { min-height: 75px; border-radius: 12px; }
+            .card .card-content .emoji { font-size: 1.8rem; }
+            .card .card-content .nombre { font-size: 0.75rem; }
+            .card .card-content .funcion { font-size: 0.6rem; }
+            .card.oculta::after { font-size: 1.8rem; }
+            .message-box { gap: 10px; padding: 10px 15px; min-height: 60px; }
+            .message-box .icono { font-size: 2rem; }
+            .message-box .texto { font-size: 0.9rem; padding: 4px 12px; }
+            .message-box .insignia { font-size: 1.8rem; }
+            .info-game .puntaje, .info-game .intentos, .btn-reiniciar { font-size: 0.9rem; padding: 6px 12px; }
+            .btn-planta { font-size: 0.95rem; padding: 8px 20px; }
             .burbuja { display: none; }
         }
 
-        @media (max-width: 480px) {
-            .board {
-                gap: 8px;
-            }
-            .card {
-                min-height: 65px;
-                border-radius: 12px;
-            }
-            .card .card-content .emoji {
-                font-size: 1.8rem;
-            }
-            .card .card-content .nombre {
-                font-size: 0.65rem;
-                padding: 2px 6px;
-            }
-            .card .card-content .funcion {
-                font-size: 0.5rem;
-                padding: 2px 4px;
-            }
-            .card.oculta::after {
-                font-size: 2rem;
-            }
+        /* Optimización extrema para smartphones muy pequeños (e.g., iPhone SE antiguo, pantallas <= 360px) */
+        @media (max-width: 360px) {
+            .header-ucv { flex-direction: column; gap: 5px; padding: 8px; }
+            .header-ucv .logo-ucv { font-size: 1.1rem; }
+            .header-ucv .facultad { font-size: 0.75rem; }
+            h1 { font-size: 1.25rem; }
+            .subtitulo { font-size: 0.85rem; }
+            .level-controls { gap: 6px; }
+            .level-btn { font-size: 0.85rem; padding: 5px 10px; }
+            .board { gap: 6px; }
+            .card { min-height: 65px; border-radius: 10px; border-width: 2px; }
+            .card .card-content .emoji { font-size: 1.4rem; }
+            .card .card-content .nombre { font-size: 0.65rem; padding: 2px 4px; }
+            .card .card-content .funcion { font-size: 0.52rem; padding: 2px; -webkit-line-clamp: 4; }
+            .card.oculta::after { font-size: 1.4rem; }
+            .message-box { margin: 8px auto; padding: 6px 10px; }
+            .message-box .icono, .message-box .insignia { font-size: 1.5rem; }
+            .message-box .texto { font-size: 0.8rem; }
+            .info-game { justify-content: center; gap: 6px; }
+            .info-game .puntaje, .info-game .intentos, .btn-reiniciar { width: 100%; justify-content: center; font-size: 0.85rem; }
+            .victoria-box { padding: 20px 15px; border-radius: 25px; }
+            .victoria-box h2 { font-size: 1.5rem; }
+            .victoria-box p { font-size: 0.95rem; }
+            .victoria-box .btn-jugar { font-size: 1rem; padding: 8px 18px; }
         }
     </style>
 </head>
 <body>
-    <!-- Burbujas decorativas -->
     <div class="burbuja"></div>
     <div class="burbuja"></div>
     <div class="burbuja"></div>
@@ -645,7 +634,6 @@
     <div class="burbuja"></div>
 
     <div class="app-container">
-        <!-- ENCABEZADO UCV -->
         <div class="header-ucv">
             <div class="logo-ucv">🏛️ UNIVERSIDAD CÉSAR VALLEJO</div>
             <div class="facultad">🎓 FACULTAD DE EDUCACIÓN · <span>EDUCACIÓN PRIMARIA</span></div>
@@ -654,7 +642,6 @@
         <h1>🧠 Juego de Memoria 🌿</h1>
         <div class="subtitulo">✨ Encuentra la pareja de cada parte de la planta ✨</div>
 
-        <!-- CONTROLES DE NIVEL -->
         <div class="level-controls">
             <button class="level-btn activo" data-nivel="1" id="nivel1Btn">
                 🌱 Nivel 1 <span class="badge">Partes</span>
@@ -665,28 +652,23 @@
         </div>
 
         <div class="game-container">
-            <!-- TABLERO -->
             <div class="board" id="board"></div>
 
-            <!-- MENSAJE DE RESPUESTA -->
             <div class="message-box" id="messageBox">
                 <div class="icono" id="msgIcono">🌱</div>
                 <div class="texto" id="msgTexto">¡Encuentra las parejas!</div>
                 <div class="insignia" id="msgInsignia">🎯</div>
             </div>
 
-            <!-- INFO DEL JUEGO -->
             <div class="info-game">
                 <div class="puntaje">🏆 <span id="paresEncontrados">0</span> / 4 parejas</div>
                 <div class="intentos">👆 <span id="intentos">0</span> intentos</div>
                 <button class="btn-reiniciar" id="btnReiniciar">🔄 Reiniciar</button>
             </div>
 
-            <!-- Botón para volver a la planta -->
             <button class="btn-planta" id="btnPlanta">🌻 Ir a la Planta Interactiva</button>
         </div>
 
-        <!-- VICTORIA OVERLAY -->
         <div class="victoria-overlay" id="victoriaOverlay">
             <div class="victoria-box">
                 <div class="trofeo">🏆</div>
@@ -790,7 +772,6 @@
             intentos = 0;
             bloqueado = false;
             primerClic = true;
-
             paresSpan.textContent = '0';
             intentosSpan.textContent = '0';
             victoriaOverlay.classList.remove('mostrar');
@@ -798,11 +779,10 @@
             const nivelTexto = nivelActual === 1 ? 'Partes' : 'Funciones';
             mostrarMensaje('🌱', `Nivel ${nivelActual}: ${nivelTexto} - ¡Encuentra las parejas!`, '🎯');
             renderizarTablero();
-
+            
             document.querySelectorAll('.level-btn').forEach(btn => {
                 btn.classList.toggle('activo', parseInt(btn.dataset.nivel) === nivelActual);
             });
-
             btnSiguienteNivel.style.display = 'inline-block';
         }
 
@@ -836,13 +816,13 @@
                         </div>`;
             } else if (carta.tipo === 'nombre') {
                 return `<div class="card-content">
-                            <div class="emoji" style="font-size:2.5rem;">📝</div>
-                            <div class="nombre" style="font-size:1.5rem; background:#1a3a5c; padding:8px 15px;">${carta.texto}</div>
+                            <div class="emoji" style="font-size:1.6rem; margin-bottom: 2px;">📝</div>
+                            <div class="nombre" style="font-size:0.9rem; background:#1a3a5c; padding:3px 8px;">${carta.texto}</div>
                         </div>`;
             } else if (carta.tipo === 'funcion') {
                 return `<div class="card-content">
-                            <div class="emoji" style="font-size:2.5rem;">💡</div>
-                            <div class="funcion" style="font-size:0.9rem; background:#2a5f7a; padding:8px 12px; border-radius:15px; color:white; line-height:1.3;">${carta.funcion}</div>
+                            <div class="emoji" style="font-size:1.4rem; margin-bottom: 2px;">💡</div>
+                            <div class="funcion" style="background:#2a5f7a; color:white;">${carta.funcion}</div>
                         </div>`;
             }
             return '';
@@ -920,7 +900,6 @@
                 }
             } else {
                 reproducirSonido('error');
-
                 const msg = mensajesError[Math.floor(Math.random() * mensajesError.length)];
                 mostrarMensaje(msg.icono, msg.texto, msg.insignia);
 
@@ -953,7 +932,6 @@
                 ? '¡Encontraste todas las parejas de partes! ¡Sigue al Nivel 2! 🌿'
                 : '¡Encontraste todas las parejas de funciones! ¡Eres un experto en plantas! 🌟';
             victoriaEmojis.textContent = nivelActual === 1 ? '🌟🌱🌟' : '🏆🌿🏆';
-            
             btnSiguienteNivel.style.display = nivelActual === 1 ? 'inline-block' : 'none';
             victoriaOverlay.classList.add('mostrar');
             reproducirSonido('victoria');
@@ -1017,7 +995,6 @@
                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duracion);
                 oscillator.start(audioCtx.currentTime);
                 oscillator.stop(audioCtx.currentTime + duracion);
-
             } catch(e) {}
         }
 
@@ -1025,23 +1002,18 @@
         document.getElementById('btnReiniciar').addEventListener('click', () => {
             inicializarJuego(nivelActual);
         });
-
         document.getElementById('btnJugar').addEventListener('click', () => {
             inicializarJuego(nivelActual);
         });
-
         document.getElementById('btnSiguienteNivel').addEventListener('click', () => {
             inicializarJuego(2);
         });
-
         document.getElementById('nivel1Btn').addEventListener('click', () => {
             inicializarJuego(1);
         });
-
         document.getElementById('nivel2Btn').addEventListener('click', () => {
             inicializarJuego(2);
         });
-
         document.getElementById('btnPlanta').addEventListener('click', () => {
             alert('🌻 ¡Vamos a la planta interactiva! (Abre la página principal)');
         });
